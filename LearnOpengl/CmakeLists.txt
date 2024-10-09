@@ -1,18 +1,32 @@
 cmake_minimum_required(VERSION 3.5)
 project(LearnOpengl VERSION 0.1 LANGUAGES CXX)
 
+# 设置第三方库和项目的路径
 SET(Thirdparty ${PROJECT_SOURCE_DIR}/../Thirdparty)
+SET(SRC ${PROJECT_SOURCE_DIR}/Src)
+SET(INC ${PROJECT_SOURCE_DIR}/Include)
 
+# 设置项目的源文件
 set(PROJECT_SOURCES
-        main.cpp
+    ${SRC}/main.cpp
+    ${Thirdparty}/glad/src/glad.c
 )
 
+# 包含头文件目录
 include_directories(
     ${Thirdparty}/glfw-3.4.bin.WIN64/include
+    ${Thirdparty}/glad/include
+    ${Thirdparty}/glad/src
+    ${INC}/
 )
 
-link_directories (
-    ${Thirdparty}/glfw-3.4.bin.WIN64/lib-vc2022
+# 链接库文件目录
+link_directories(
+    ${Thirdparty}/glfw-3.4.bin.WIN64/lib-vc2022/
 )
 
+# 创建可执行文件
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
+
+# 链接库文件
+target_link_libraries(${PROJECT_NAME} glfw3 opengl32)
