@@ -24,6 +24,15 @@ void ShowFPS(GLFWwindow* window)
     }
 }
 
+// camera
+glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
+// timing
+float deltaTime = 0.0f;	// time between current frame and last frame
+float lastFrame = 0.0f;
+
 std::string shaderpath = std::filesystem::current_path().string() + "\\..\\Include\\";
 std::string vspath = shaderpath + "3.3.shader.vs";
 std::string fspath = shaderpath + "3.3.shader.fs";
@@ -39,3 +48,13 @@ std::string fspath_5_1 = shaderpath + "5.1.shader.fs";
 
 std::string vspath_6_1 = shaderpath + "6.1.shader.vs";
 std::string fspath_6_1 = shaderpath + "6.1.shader.fs";
+
+std::string vspath_7_1 = shaderpath + "7.1.shader.vs";
+std::string fspath_7_1 = shaderpath + "7.1.shader.fs";
+
+
+std::string vspath_1_color = shaderpath + "1.colors.vs";
+std::string fspath_1_color = shaderpath + "1.colors.fs";
+
+std::string vspath_1_light_cube = shaderpath + "1.light_cube.vs";
+std::string fspath_1_light_cube = shaderpath + "1.light_cube.fs";
